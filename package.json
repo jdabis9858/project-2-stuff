@@ -1,0 +1,28 @@
+{
+  "name": "project-2-stuff",
+  "version": "1.0.0",
+  "description": "",
+  "main": "p2api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdabis9858/project-2-stuff.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdabis9858/project-2-stuff/issues"
+  },
+  "homepage": "https://github.com/jdabis9858/project-2-stuff#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.12",
+    "mysql": "^2.16.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {}
+}
