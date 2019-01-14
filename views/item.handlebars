@@ -34,49 +34,12 @@
                   </form>
                 </div>
               </nav>
+<h1>Item</h1>
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <ul>
-        {{#each merchant1}}
-        <li>
-          <p>
-            {{this.id}}. {{this.product_name}}
+{{#each items}}
 
-            <button data-userid="{{this.id}}" class="deluser">Delete</button>
-          </p>
-        </li>
-        {{/each}}
-      </ul>
-        </div>
-    </div>
-</div>
+    <p>
+        {{product_name}}
+    </p>
 
-<script>
-    $("#submit-search").on("click", function(event) {
-   
-    event.preventDefault();
-
-    var catagory = $("#search-input").val().trim()
-
-    $.get("/new/" + catagory).then(function(data) {
-   
-   window.location.replace(data)
-
-}).catch(function(err) {
-    console.log(err)
-})
-
-
-
-    
-
-    
-
-    
-  }); 
-
-    
-
-</script>
+{{/each}}

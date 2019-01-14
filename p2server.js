@@ -58,26 +58,32 @@ app.get("/", function (req, res) {
             merchant1: data
         });
     });
-    
+
 });
 
-app.get("/searched", function (req, res) {
+app.get("/new/:searched", function (req, res) {
 
     // res.send("hi")
-    connection.query("SELECT * FROM merchant1;", [req.body.searched ], function (err, data) {
+    connection.query("SELECT * FROM merchant1 WHERE product_name = ?", [req.params.searched], function (err, data) {
         if (err) {
             console.log(err);
             return res.status(500).end();
         }
-        res.render(
-            
-        console.log(data),
-        console.log(req.body.searched)
-        );
 
-        // res.render("index", {merchant1: data});
+        var hbsObj = {
+            items: data
+        }
+
+
+        console.log(data),
+            console.log(req.params.searched)
+
+        res.render("item", {
+            items: data
+        
+        });
     });
-    
+
 });
 
 
