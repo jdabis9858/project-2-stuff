@@ -12,7 +12,7 @@ CREATE TABLE merchant1 (
   PRIMARY KEY (id)
 );
 
-INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
+INSERT INTO merchant1 (merchant_Id, product_name, department_name, price, stock_quantity)
 VALUES (1, "Monitor", "Electronics", 149.99, 15), 
         (1, "1 TB Storage Drive", "Electronics", 99.99, 40),
         (1, "Shirt", "Clothing", 19.99, 60),

@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 var exphbs = require("express-handlebars");
-
+var Handlebars = require("handlebars")
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -25,7 +25,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "lambo127",
+    password: "clarks77",
     database: "store"
 });
 
@@ -63,30 +63,44 @@ app.get("/", function (req, res) {
 
 app.get("/new/:searched", function (req, res) {
 
-    // res.send("hi")
+    
     connection.query("SELECT * FROM merchant1 WHERE product_name = ?", [req.params.searched], function (err, data) {
         if (err) {
             console.log(err);
             return res.status(500).end();
         }
 
-        var hbsObj = {
-            items: data
-        }
+        //var hbsObj = {items: data}
 
 
         console.log(data),
-            console.log(req.params.searched)
+        console.log("this one " + req.params.searched)
+
+        //res.render("item", {
+          //  items: data
+        //});
 
         res.render("item", {
             items: data
-        
         });
     });
 
 });
 
-
+Handlebars.registerHelper('grouped_each', function(every, context, options) {
+    var out = "", subcontext = [], i;
+    if (context && context.length > 0) {
+        for (i = 0; i < context.length; i++) {
+            if (i > 0 && i % every === 0) {
+                out += options.fn(subcontext);
+                subcontext = [];
+            }
+            subcontext.push(context[i]);
+        }
+        out += options.fn(subcontext);
+    }
+    return out;
+});
 
 // app.get('/la', (req, res) => {
 //     res.send("yee")
