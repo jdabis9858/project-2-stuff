@@ -25,6 +25,7 @@ VALUES (1, "Monitor", "Electronics", 149.99, 15),
         (1, "Asprin", "Health", 7.99, 20);
 
 -- Rohit Store 
+DROP DATABASE IF EXISTS store;
 USE store; 
         CREATE TABLE merchant3 (
         id INT NOT NULL AUTO_INCREMENT,
