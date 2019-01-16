@@ -16,5 +16,5 @@ VALUES
   (2,"Spyro", "Video Game", 25.50, 100, "Remastered 90s game", " ", 2),
   (2,"Monopoly", "Board Games", 20.00, 35, "The Original Board Game", " ", 2),
   (2,"PS4 Controller", "Accessories", 59.99, 20, "Controller for your PS4 console", " ", 2);
-
+-- selct all 
   Select * from products; 
