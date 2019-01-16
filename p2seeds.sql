@@ -18,3 +18,5 @@ VALUES
   (2,"PS4 Controller", "Accessories", 59.99, 20, "Controller for your PS4 console", " ", 2);
 -- selct all 
   Select * from products; 
+
+  -- making example changes
