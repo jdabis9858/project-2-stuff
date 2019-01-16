@@ -10,7 +10,7 @@ USE store;
         price DECIMAL(10, 2) NULL,
         stock_quantity INT NOT NULL,
         PRIMARY KEY (id),
-        desc VARCHAR(100),
+        product_desc VARCHAR(100),
         photolink VARCHAR(100),
         storeid INT NULL
       );
