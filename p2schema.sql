@@ -24,8 +24,9 @@ VALUES (1, "Monitor", "Electronics", 149.99, 15),
         (1, "Cold Medicine", "Health", 9.99, 20), 
         (1, "Asprin", "Health", 7.99, 20);
 
--- Rohit Store 
+-- New Database Schema Rohit Store 
 DROP DATABASE IF EXISTS store;
+CREATE DATABASE store;
 USE store; 
         CREATE TABLE merchant3 (
         id INT NOT NULL AUTO_INCREMENT,
