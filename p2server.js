@@ -25,7 +25,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "Root@2019",
+    password: "Root@2019@",
     database: "store"
 });
 
@@ -48,7 +48,7 @@ connection.connect(function (err) {
 app.get("/", function (req, res) {
     // console.log("something")
     // res.send("hi")
-    connection.query("SELECT * FROM merchant1;", function (err, data) {
+    connection.query("SELECT * FROM merchant3;", function (err, data) {
         if (err) {
             console.log(err);
             return res.status(500).end();
@@ -64,7 +64,7 @@ app.get("/", function (req, res) {
 app.get("/new/:searched", function (req, res) {
 
     
-    connection.query("SELECT * FROM merchant1 WHERE product_name = ?", [req.params.searched], function (err, data) {
+    connection.query("SELECT * FROM merchant3 WHERE product_name = ?", [req.params.searched], function (err, data) {
         if (err) {
             console.log(err);
             return res.status(500).end();
