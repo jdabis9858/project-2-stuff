@@ -1,4 +1,6 @@
---seed 
+
+
+=======
 INSERT INTO merchant3 (merchant_Id, product_name, department_name, price, stock_quantity,product_desc,photolink,storeid)
 
 VALUES (3, "Monitor", "Electronics", 149.99, 15,"LG Monitor","https://www.google.com",2),
@@ -23,6 +25,6 @@ VALUES
   (2,"Monopoly", "Board Games", 20.00, 35, "The Original Board Game", " ", 2),
   (2,"PS4 Controller", "Accessories", 59.99, 20, "Controller for your PS4 console", " ", 2);
 -- selct all 
-  Select * from products;
 
+  Select * from products; 
 
