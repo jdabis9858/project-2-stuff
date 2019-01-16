@@ -33,5 +33,13 @@ USE store;
         department_name VARCHAR(45) NULL,
         price DECIMAL(10, 2) NULL,
         stock_quantity INT NOT NULL,
-        PRIMARY KEY (id)
+        PRIMARY KEY (id),
+        desc VARCHAR(100),
+        photolink VARCHAR(100),
+        storeid INT NULL
       );
+
+      --seed 
+USE store;
+INSERT INTO merchant3 (merchant_Id, product_name, department_name, price, stock_quantity,desc,photolink,storeid)
+VALUES (1, "Monitor", "Electronics", 149.99, 15,"LG Monitor","https://www.google.com",2)
