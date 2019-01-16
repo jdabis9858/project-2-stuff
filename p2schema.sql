@@ -1,7 +1,7 @@
 CREATE DATABASE store;
 USE store;
 
-
+-- craigs store 
 CREATE TABLE merchant1 (
   id INT NOT NULL AUTO_INCREMENT,
   merchant_Id INT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE merchant1 (
   stock_quantity INT NOT NULL,
   PRIMARY KEY (id)
 );
-
+USE store;
 INSERT INTO merchant1 (merchant_Id, product_name, department_name, price, stock_quantity)
 VALUES (1, "Monitor", "Electronics", 149.99, 15), 
         (1, "1 TB Storage Drive", "Electronics", 99.99, 40),
@@ -23,3 +23,15 @@ VALUES (1, "Monitor", "Electronics", 149.99, 15),
         (1, "Pie", "Food", 8.99, 12), 
         (1, "Cold Medicine", "Health", 9.99, 20), 
         (1, "Asprin", "Health", 7.99, 20);
+
+-- Rohit Store 
+USE store; 
+        CREATE TABLE merchant3 (
+        id INT NOT NULL AUTO_INCREMENT,
+        merchant_Id INT NULL,
+        product_name VARCHAR(45) NULL,
+        department_name VARCHAR(45) NULL,
+        price DECIMAL(10, 2) NULL,
+        stock_quantity INT NOT NULL,
+        PRIMARY KEY (id)
+      );
