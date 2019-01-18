@@ -28,7 +28,7 @@
     </style>
 
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="/">Navbar</a>
+                <a class="navbar-brand" href="/">Menu</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -82,13 +82,13 @@
 </div> --}}
 
 <div class="container-fluid">
-  {{#grouped_each 3 merchant1}}
+  {{#grouped_each 3 merchant3}}
   <div class="row mt-5 card-rows">
 
     {{#each this}}
     <div class="col col-lg-4 col-sm-12">
       <div class="card card-style">
-        <img class="card-img-top" src="https://images.pexels.com/photos/1579063/pexels-photo-1579063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        <img class="card-img-top" src={{this.photolink}}
           alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{this.product_name}}</h5>
