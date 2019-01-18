@@ -11,7 +11,7 @@ USE store;
         stock_quantity INT NOT NULL,
         PRIMARY KEY (id),
         product_desc VARCHAR(100),
-        photolink VARCHAR(100),
+        photolink VARCHAR(200),
         storeid INT NULL
       );
 

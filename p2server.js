@@ -4,7 +4,7 @@ var path = require("path")
 var http = require("http");
 var fs = require("fs");
 
-var PORT = 8080;
+var PORT = 3080;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -18,11 +18,11 @@ app.set("view engine", "handlebars");
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "Root@2019@",
-    database: "store"
+    host:"localhost",
+    port:3306,
+    user:"root",
+    password:"Root@2019@",
+    database:"store"
 });
 
 connection.connect(function (err) {
@@ -51,7 +51,7 @@ app.get("/", function (req, res) {
         }
 
         res.render("index", {
-            merchant1: data
+            merchant3: data
         });
     });
 
