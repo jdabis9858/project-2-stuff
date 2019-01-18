@@ -6,16 +6,81 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+   <link rel="stylesheet" type="text/css" href="/css/style.css">
+   
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
+<style>
+
+     /* TOP Padding */
+.pad90 { padding-top: 90px; }
+.pad60 { padding-top: 60px; }
+.pad45 { padding-top: 45px; }
+.pad30 { padding-top: 30px; }
+.pad25 { padding-top: 25px; }
+.pad20 { padding-top: 20px; }
+.pad15 { padding-top: 15px; }
+.pad10 { padding-top: 10px; }
+.pad5 { padding-top: 5px; }
+.pad-right5 { padding-right: 5px; }
+.pad-left5 { padding-left: 5px; }
+.pad-bottom5 { padding-bottom: 15px; }
+.pad2 { padding-top: 2px; }
+
+  /* override Bootstrap's container - index.handlebars css */
+  .container-fluid {
+    width: 100%;
+ }
+
+.card-style {
+  width: 22rem;
+}
+
+.card-rows {
+    margin-left: 5rem;
+  }
+
+@media only screen 
+and (max-width : 376px) {
+  .card-style {
+    width: 0;
+  }
+
+  .card-rows {
+    margin-left: .5rem;
+  }
+  
+}
+</style>
 
 
 <body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto justify-content-end">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    </li>
+                  </ul>
+              
+    
+                </div>
+              </nav>
+            <div class="pad90"></div>
+             
+
     {{{ body }}}
     </body>
 </html>

@@ -3,12 +3,14 @@ var app = express();
 var path = require("path")
 var http = require("http");
 var fs = require("fs");
-
+var cartData = require("./data/cartData");
 
 
 
 var PORT = 8080;
 
+app.use(express.static('public')); // this wont work
+app.use(express.static('data'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,7 +27,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "lambo127",
+    password: "clarks77",
     database: "store"
 });
 
@@ -48,14 +50,14 @@ connection.connect(function (err) {
 app.get("/", function (req, res) {
     // console.log("something")
     // res.send("hi")
-    connection.query("SELECT * FROM merchant1;", function (err, data) {
+    connection.query("SELECT * FROM merchant3;", function (err, data) {
         if (err) {
             console.log(err);
             return res.status(500).end();
         }
 
         res.render("index", {
-            merchant1: data
+            merchant3: data
         });
     });
 
@@ -64,7 +66,7 @@ app.get("/", function (req, res) {
 app.get("/new/:searched", function (req, res) {
 
     
-    connection.query("SELECT * FROM merchant1 WHERE product_name = ?", [req.params.searched], function (err, data) {
+    connection.query("SELECT * FROM merchant3 WHERE product_name = ?", [req.params.searched], function (err, data) {
         if (err) {
             console.log(err);
             return res.status(500).end();
@@ -86,6 +88,41 @@ app.get("/new/:searched", function (req, res) {
     });
 
 });
+
+app.get("/api/cart", function(req, res) {
+    res.json(cartData);
+  });
+
+app.get("/cart", function (req, res) {
+
+    res.render("cart", { cartItems: cartData})
+    
+});
+
+app.post("/api/cart/:id", function(req, res) {
+    console.log(req.params.id)
+    connection.query("SELECT * FROM merchant3 WHERE id = ?", [req.params.id], function (err, data) {
+        
+        if (err) {
+            console.log(err);
+            return res.status(500).end();
+        }
+        
+        console.log(data[0])
+        
+        cartData.push(data[0])
+
+    });
+  
+});
+
+app.put("/api/delete/cart/:item", function(req, res) {
+    console.log(req.params.item)
+    var itemIndex = req.params.item;
+    cartData.splice(itemIndex,1)
+  
+});
+
 
 Handlebars.registerHelper('grouped_each', function(every, context, options) {
     var out = "", subcontext = [], i;
