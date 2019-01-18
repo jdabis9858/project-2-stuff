@@ -34,12 +34,17 @@
                   </form>
                 </div>
               </nav>
-<h1>Item</h1>
+<h1></h1>
 
 {{#each items}}
 
-    <p>
+    <h1>
         {{product_name}}
-    </p>
+    </h1>
+<img src="{{photolink}}" width="300px" height="300px"/>
+<br ><p>{{product_desc}}</p>   
+<h2>${{price}}</h2>
+<button id="submit-search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Add to Cart</button>
+
 
 {{/each}}
