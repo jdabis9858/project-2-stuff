@@ -1,0 +1,48 @@
+<h1>SHOPPING CART</h1>
+
+
+<h2>Cart Items</h2>
+
+{{#each cartItems}}
+
+    <div class="row item">
+        <div class="col-lg-2">
+            <p> {{product_name}} - ${{price}} </p>
+        </div>
+        <div class="col-lg-2 text-left">
+            <div class="delete">X</div>
+        </div>
+    </div>
+    
+{{/each}}
+
+
+<script>
+
+$(".delete").on("click", this, function(event) {
+    event.preventDefault();
+  var deletedCartItem = $(this).index();
+
+  console.log(event)
+    // Here we grab the form elements
+    
+
+    console.log(deletedCartItem);
+
+   $.post("/api/delete/cart/" + deletedCartItem,
+      function(data) {
+
+        if (data) {
+          alert("It worked!");
+        }
+
+        else {
+          alert("Didnt Work");
+        }
+      });
+
+    $(".item")[deletedCartItem].remove()
+
+  });
+
+</script>

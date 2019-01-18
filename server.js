@@ -3,6 +3,16 @@ var app = express();
 var path = require("path")
 var http = require("http");
 var fs = require("fs");
+var cartData = require("./data/cartData");
+
+
+
+var PORT = 8080;
+
+app.use(express.static('public')); // this wont work
+app.use(express.static('data'));
+
+=======
 
 var PORT = 8080;
 
@@ -18,11 +28,13 @@ app.set("view engine", "handlebars");
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
-    host:"localhost",
-    port:3306,
-    user:"root",
-    password:"Root@2019@",
-    database:"store"
+
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: "",
+    database: "store"
+
 });
 
 connection.connect(function (err) {
@@ -82,6 +94,41 @@ app.get("/new/:searched", function (req, res) {
     });
 
 });
+
+app.get("/api/cart", function(req, res) {
+    res.json(cartData);
+  });
+
+app.get("/cart", function (req, res) {
+
+    res.render("cart", { cartItems: cartData})
+    
+});
+
+app.post("/api/cart/:id", function(req, res) {
+    console.log(req.params.id)
+    connection.query("SELECT * FROM merchant3 WHERE id = ?", [req.params.id], function (err, data) {
+        
+        if (err) {
+            console.log(err);
+            return res.status(500).end();
+        }
+        
+        console.log(data[0])
+        
+        cartData.push(data[0])
+
+    });
+  
+});
+
+app.put("/api/delete/cart/:item", function(req, res) {
+    console.log(req.params.item)
+    var itemIndex = req.params.item;
+    cartData.splice(itemIndex,1)
+  
+});
+
 
 Handlebars.registerHelper('grouped_each', function(every, context, options) {
     var out = "", subcontext = [], i;
