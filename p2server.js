@@ -12,6 +12,10 @@ var PORT = 8080;
 app.use(express.static('public')); // this wont work
 app.use(express.static('data'));
 
+=======
+
+var PORT = 8080;
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -24,11 +28,13 @@ app.set("view engine", "handlebars");
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
+
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "clarks77",
+    password: "",
     database: "store"
+
 });
 
 connection.connect(function (err) {
